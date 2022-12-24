@@ -107,3 +107,21 @@ int arr[] = {1, 7, 4, 5, 2};
 // By putting "return 0;" in anywhere, we can terminate the program. After this line, no line of code will be executed    
 
 ```
+# Programming | Finding maximum value in an array #
+
+This is the code : 
+
+```C++
+#include <iostream>
+int main()
+{
+    int a;   
+    std::cin >> a;    
+    int ar[a];
+    for (int i=0; i<a; i++){  std::cin >> ar[i]; }
+    int max = 0;
+    for (int k=0; k<a; k++) { if( max< ar[k]) { max = ar[k];} }
+    std::cout << max;
+    return 0; 
+}
+```
