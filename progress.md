@@ -10,3 +10,4 @@ I should have a rough idea of the ascii codes/ascii table. I should know that 48
 
 This is a special day. It's a pi day! Hurray! 
 Onething that I learnt today is that that I should always considering while solving any problems in CP, whether I am acessing an out of range value of an array, specially in loops (for/while). I should always consider what are the else case of a conditional statement; I always forget about that. Next time, I should be careful about it. 
+The scientific notation of writing 1*10^7 would be 1e7
