@@ -11,3 +11,7 @@ I should have a rough idea of the ascii codes/ascii table. I should know that 48
 This is a special day. It's a pi day! Hurray! 
 Onething that I learnt today is that that I should always considering while solving any problems in CP, whether I am acessing an out of range value of an array, specially in loops (for/while). I should always consider what are the else case of a conditional statement; I always forget about that. Next time, I should be careful about it. 
 The scientific notation of writing 1*10^7 would be 1e7
+
+## 15th March 2023
+I can use this piece of code as a short form/an efficient way to input an array of numbers: ```for(int i = 0;i<5*n ;i++)cin>>arr[i];```, but i have to keep in mind that only one line ending with one semicolon will be executed, which means this ```for(int i = 0;i<5*n ;i++)cin>>arr[i];sum+= arr[i];``` will not work.
+One way of sorting an array is to use ```sort(arr, arr + n);```, I literally forgot about it for a long time.
