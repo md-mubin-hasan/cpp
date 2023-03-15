@@ -14,4 +14,7 @@ The scientific notation of writing 1*10^7 would be 1e7
 
 ## 15th March 2023
 I can use this piece of code as a short form/an efficient way to input an array of numbers: ```for(int i = 0;i<5*n ;i++)cin>>arr[i];```, but i have to keep in mind that only one line ending with one semicolon will be executed, which means this ```for(int i = 0;i<5*n ;i++)cin>>arr[i];sum+= arr[i];``` will not work.
+
 One way of sorting an array is to use ```sort(arr, arr + n);```, I literally forgot about it for a long time.
+
+One way of fixing the number of decimal numbers in output is to use ```cout<<fixed<<setprecision(5)<<n;```
