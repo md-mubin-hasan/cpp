@@ -1,13 +1,16 @@
 # cpp-commands
 These are the C++ concepts which I might need in future 
 
- # Some beginnaer Tricks #
- 
- ### Operators ###
- ```C++
- != 3    x = x|3  >>= 3  x= x>>3    <<= 3  x= x<<3
- ```
- 
+# Some beginnaer Tricks #
+
+### Operators ###
+```C++
+!= 3    x = x|3  >>= 3  x= x>>3    <<= 3  x= x<<3
+```
+#define fasty ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+typedef long long ll;
+```
+
  ### Concatenation ###
  ```C++
  Concatenation "+"
