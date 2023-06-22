@@ -8,8 +8,36 @@ These are the C++ concepts which I might need in future
 != 3    x = x|3  >>= 3  x= x>>3    <<= 3  x= x<<3
 ```
 ```
+#include<bits/stdc++.h>
+using namespace std;
 #define fasty ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 typedef long long ll;
+
+int main ()
+{
+    int a = 5;
+    int b =  ++a;   // b= 6    a=6
+    int c =  a++;   // c= 6    a = 7
+
+cout << a++;     // 7    a=8
+cout << ++a;  // 9    a=10
+
+if (negative and positive numbers are regarded as true... only 0 is regarded as false){}
+else{}
+
+vector<bool> abc (n); // sob elements jodi true deya hoy and ekta spot e jodi faka thake
+
+for (int i = 0; i < n; ++i) {
+        if (!abc[i]) {
+            cout << "No\n";
+            return 0;  // ekhane eita deya mane code run kora ekhane stop korbe, ei condition ashle
+        }
+
+vector<int> A(N);   // integer keo sort kora jay, string keo sort kora jay
+sort(A.begin(), A.end());
+
+int bc = c%2 == 1 && b<0;  
+}
 ```
 
 ### Concatenation ###
