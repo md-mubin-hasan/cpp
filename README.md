@@ -430,3 +430,259 @@ cout<<fact[j]<<" ";
 cout <<" = " <<num;
 }
 ```
+
+```
+(a+b)%m = (a%m + b%m)%m
+(a-b)%m = (a%m - b%m)%m
+(a*b)%m = (a%m * b%m)%m
+(a/b)%m = (a%m * b^-1%m)%m
+(a^b)%m = ((a%m)^b)%m
+But not (a/b)%m = (a%m / b%m)%m
+```
+
+```
+vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+
+for (const string & word : msg)
+{
+	cout << word << " ";
+}
+cout << endl;
+```
+
+## Pre-computation techniques - hashing
+```
+#include <bits/stdc++.h>
+using namespace std;
+//Finding factorial modulo 1e9+7
+const int N = 1e5+10;
+const int M = 1e9+7;
+long long int ar[N];
+int main()
+{
+    int t;
+    cin>>t;
+    ar[0] = ar[1] = 1;
+    for(int i = 2; i<N; ++i ){
+        ar[i] = (ar[i-1]*i)%M;
+    }
+    while(t--){
+        int n;
+        cin>>n;
+        // long long int fact = 1;
+        // for(int i = 2; i<=n; ++i){
+        //     fact = (fact*i)%M;
+        // }
+        cout<<ar[n]<<"\n";
+    }
+
+    return 0;
+}
+```
+
+## Pre-computation techniques - prefix sum 1D array
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e5+10;
+long long int ar[N];
+
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n+1];
+    ar[0]=0;
+    for(int i=1; i<=n; ++i){
+        cin>>arr[i];
+        ar[i] = ar[i-1] + arr[i];
+    }
+    int q;
+    cin>>q;
+    while(q--){
+        int l, r;
+        cin>>l>>r;
+        cout<<ar[r]-ar[l-1]<<"\n";
+    }
+
+    return 0;
+}
+```
+
+## Pre-computation techniques - prefix sum 2D array
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e3+1;
+long long int ar[N][N];
+
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n+1][n+1];
+    for(int i=1; i<=n; ++i){
+        for(int j=1; j<=n; ++j){
+            cin>>arr[i][j];
+            ar[i][j] = ar[i-1][j] + ar[i][j-1] - ar[i-1][j-1] + arr[i][j];
+        }
+    }
+    int q;
+    cin>>q;
+    while(q--){
+        int a,b,c,d;
+        cin>>a>>b>>c>>d;
+        cout<<ar[c][d]-ar[a-1][d]-ar[c][b-1]+ar[a-1][b-1]<<"\n";
+    }
+
+    return 0;
+}
+```
+
+```
+#include<bits/stdc++.h>
+using namespace std;
+int ar[1000002];
+main()
+{
+int n,sum;
+cin>>n>>sum;
+for(int i=0;i<=1000001;i++)
+ar[i]=0;
+for(int i=1;i<=n;i++)
+{
+    int a;
+    cin>>a;
+    ar[a]++;
+}
+int left=0; int right=1000001;
+bool ans=false;
+while(left<right)
+{
+    if(ar[left]==0||ar[right]==0)
+    {
+        while(ar[left]==0)
+        left++;
+        while(ar[right]==0)
+        right--;
+    }
+    if(left+right==sum&&left!=right)
+    {
+        ans=true; break;
+    }
+    else if(left+right>sum)
+    right--;
+    else if(left+right<sum)
+    left++;
+}
+if(left+right==sum&&left==right&&ar[left]>1)
+    ans=true;
+if(ans)
+cout<<"YES";
+else
+cout<<"NO";
+}
+```
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    int ar[t+1];
+    int gcd[t+1];
+    gcd[0]=0;
+    for(int i=1; i<=t; ++i){
+        cin>>ar[i];
+        gcd[i] = __gcd(gcd[i-1], ar[i]);
+    }
+    for(int i=1; i<=t; ++i){
+        cout<<gcd[i]<<" ";
+    }
+
+    return 0;
+}
+```
+
+```
+#include <bits/stdc++.h>
+
+using namespace std;
+const long int M = 1e7+10;
+long long int ps[M]={0};
+long long int ar[M]={0};
+int main()
+{
+    long int n,q;
+    cin>>n>>q;
+    while(q--){
+        long long int a,b,k;
+        cin>>a>>b>>k;
+        ar[a] += k;
+        ar[b+1] -= k;
+    }
+    
+    for(long int i=1; i<=n; ++i){
+        ps[i] = ps[i-1]+ar[i];
+    }
+    long long int mx = -1;
+    for(long int i=1; i<=n; ++i){
+        if(mx < ps[i]){mx=ps[i];}
+    }
+    cout<<mx;
+    return 0;
+}
+```
+
+## Prefix Sum + Hashing Hard Question
+```
+#include <bits/stdc++.h>
+
+using namespace std;
+const int n = 1e5+10;
+int hsh[26][n];
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int N, Q;
+        cin>>N>>Q;
+        string s;
+        cin>>s;
+        for(int i=0; i<26; ++i){
+            for(int j=0; j<=N; ++j){
+                hsh[i][j] = 0;
+            }
+        }
+
+        for(int j=0; j<N; ++j){
+            hsh[s[j]-'a'][j+1]++;
+        }
+
+        for(int i=0; i<26; ++i){
+            for(int j=1; j<=N; ++j){
+                hsh[i][j] += hsh[i][j-1];
+            }
+        }
+        while(Q--){
+            int l,r;
+            cin>>l>>r;
+            int oddc = 0;
+            for(int i=0; i<26; ++i){
+                if( (hsh[i][r]-hsh[i][l-1])%2 != 0 ){oddc++;}
+            }
+            if(oddc > 1){cout<<"No\n";}
+            else{cout<<"Yes\n";}
+        }
+    }
+
+    return 0;
+}
+```
