@@ -139,7 +139,7 @@ for(auto x : arr)  // We can enter "int" as well in here
 // By putting "return 0;" in anywhere, we can terminate the program. After this line, no line of code will be executed    
 
 ```
-# Programming | Finding maximum value in an array #
+## Programming | Finding maximum value in an array #
 
 This is the code : 
 
@@ -158,7 +158,7 @@ return 0;
 }
 ```
 
-# Sorting-an-array-in-ascending-order #
+## Sorting-an-array-in-ascending-order #
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
@@ -205,7 +205,7 @@ return 0;
 }
 ```
 
-# Converting-all-letters-to-lowercase-or-uppercase-letters #
+## Converting-all-letters-to-lowercase-or-uppercase-letters #
 
 ```C++
 #include <iostream>
@@ -219,7 +219,7 @@ transform(b.begin(), b.end(), b.begin(), ::toupper);
 }
 ```
 
-# Count-the-number-of-characters-in-a-string-and-printing-the-maximum-number-of-occurence #
+## Count-the-number-of-characters-in-a-string-and-printing-the-maximum-number-of-occurence #
 
 ```C++
 #include <iostream>
@@ -264,7 +264,7 @@ return 0;
 }
 ```
 
-# Carryout-task-in-alternating-number-in-for-loop #
+## Carryout-task-in-alternating-number-in-for-loop #
 
 
 ```C++
@@ -292,7 +292,7 @@ std::cout << "\n";
 }
 ```
 
-# Switch-statement #
+## Switch-statement #
 ```C++
 #include <iostream>
 using namespace std;
@@ -339,7 +339,7 @@ return 0;
 }
 ```
 
-# nCr-Formula_Efficient-way #
+## nCr-Formula_Efficient-way #
 ```C++
 #include <bits/stdc++.h>
 using namespace std;
@@ -399,7 +399,7 @@ return 0;
 }
 ```
 
-# Prime-Factorization-Number
+## Prime-Factorization-Number
 
 ```C++
 #include<bits/stdc++.h>
@@ -449,7 +449,67 @@ for (const string & word : msg)
 }
 cout << endl;
 ```
+# STL ~ Containers - Iterators - Algorithms - Functors 
 
+## Pairs and Vectors
+```
+#include<bits/stdc++.h>
+using namespace std;
+
+void printVec(vector<int> a){
+	for(int i=0; i<a.size(); i++){
+	cout<<a[i]<< " ";
+	}
+}
+
+int main(){
+pair<int, string> p;
+p = make_pair(2, "abc");
+
+pair<int, string> q;
+q = {2,"abc"};
+
+cout<<p.first << " " << p.second;
+
+p.first = 3;
+
+pair<int, string> p1 = p; //p gets copied and stored in p1, so if i change any value in p, it doesn't get changed in p1
+pair<int, string> &p2 = p; //p gets referenced, so if I change any vlaue in p, it will also get changed in p2
+
+int a[] = {1,2,3};  //array declaration
+int b[] = {2,3,4};
+
+pair<int, int> p_array[3]; //arrays of pair
+p_array[0] = {1,2};
+p_array[1] = {2,3};
+p_array[2] = {3,4};
+
+swap(p_array[0], p_array[1]); //in-built function swapping values in containers/variables
+
+for(int i=0; i<3; i++){
+	cout<<p_array[i].first << " " << p_array[i].second << "\n";
+}
+
+vector<int> v;
+int n;
+cin>>n;
+for(int i=0; i<n; i++){
+	int x;
+	cin>>x;
+	v.push_back(x);   //O(1) time complexity
+}
+// v.size() is O(1)
+
+printVec(v);
+
+vector<int> a(10); //a vector with 10 zeroes are initiated
+a.push_back(7);
+vector<int> b(10, 3); //a vector with 10 threes are initiated
+
+a.pop_back(); //deleting the last element of the vevctor
+}
+
+```
 ## Pre-computation techniques - hashing
 ```
 #include <bits/stdc++.h>
