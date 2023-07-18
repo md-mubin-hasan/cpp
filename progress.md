@@ -21,6 +21,9 @@ One way of fixing the number of decimal numbers in output is to use ```cout<<fix
 
 ## 19th July 2023
 For doing a^2 use a * a instead of pow(a, 2) as pow function works for double numbers and it is not 100% accurate for integer calculations.
+
 Typecast helps to change the data type while doing the calculation.
+
 To input a string of 100000 characters, we can declare an char array and input as a single line ```char s[100005]; cin>>s;```
+
 ```if(a==b && b==d && c==e)``` is same as ```if(a==b and b==d and c==e)```
