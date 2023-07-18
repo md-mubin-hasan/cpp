@@ -18,3 +18,6 @@ I can use this piece of code as a short form/an efficient way to input an array 
 One way of sorting an array is to use ```sort(arr, arr + n);```, I literally forgot about it for a long time.
 
 One way of fixing the number of decimal numbers in output is to use ```cout<<fixed<<setprecision(5)<<n;```
+
+## 19th July 2023
+For doing a^2 use a * a instead of pow(a, 2) as pow function works for double numbers and it is not 100% accurate for integer calculations.
