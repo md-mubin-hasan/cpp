@@ -27,3 +27,9 @@ Typecast helps to change the data type while doing the calculation.
 To input a string of 100000 characters, we can declare an char array and input as a single line ```char s[100005]; cin>>s;```
 
 ```if(a==b && b==d && c==e)``` is same as ```if(a==b and b==d and c==e)```
+
+## 1st August 2023
+Sometimes amake #ifndef ONLINE_JUDGE change kore #ifdef LOCAL dite hobe
+basically ONLINE_JUDGE flag ta normal shob online judge e define kora thake, thats why normally pera hoy nah
+and locally define kora thake nah so input.txt theke input ney
+but hackerrank e maybe eta define kora nai, thats why input.txt theke input nite chaitese but oi file e kichu nai as stdin e input
