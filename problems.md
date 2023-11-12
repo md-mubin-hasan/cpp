@@ -48,3 +48,36 @@ for (int evony_shots = 0; ; evony_shots++) {
 // we are here means we haven't met the damage goal
 cout << "No\n";
 ```
+
+[Problem link: ](https://codeforces.com/problemset/problem/102/B)
+
+```C++
+long long int sum_of_digits(long long int n){
+    long long int sum = 0;
+    while(n>0){
+        sum += n%10;
+        n /= 10;
+    }
+    return sum;
+}
+
+int main(){
+    char s[100005]; cin>>s;
+    long long int n = strlen(s);
+    long long digit_sum = 0, ans = 0;
+    if(n==1){
+        cout<<0;
+        return 0;
+    }
+    for(int i=0; i<n; i++){
+        digit_sum += s[i]-'0';
+    }
+
+    while(digit_sum > 9){
+        digit_sum = sum_of_digits(digit_sum);
+        ans++;
+    }
+    cout<<ans+1;
+    return 0;
+}
+```
